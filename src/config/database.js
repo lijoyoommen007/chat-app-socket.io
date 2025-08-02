@@ -9,6 +9,8 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 3306,
     dialect: 'mysql',
+    dialectModule:require("mysql2"),
+    benchmark:true,
     logging: process.env.NODE_ENV === 'development' ? console.log : false,
     pool: {
       max: 5,
