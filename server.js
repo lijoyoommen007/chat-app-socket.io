@@ -20,7 +20,7 @@ const startServer = async () => {
     if (process.env.NODE_ENV === 'development') {
       try {
         // Try to sync without force first
-        await sequelize.sync({ alter: true });
+        await sequelize.sync({ alter: false });
         console.log('Database synced successfully.');
       } catch (syncError) {
         if (syncError.parent && syncError.parent.code === 'ER_TOO_MANY_KEYS') {
